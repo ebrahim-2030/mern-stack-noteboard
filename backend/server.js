@@ -1,13 +1,11 @@
 import express from "express";
+import notesRoutes from "./src/routes/notesRoutes.js";
 
 // create express app
 const app = express();
 
-
-// test GET endpoint for fetchint notes
-app.get("/api/notes", (req, res) => {
-  res.send("You got 5 notes");
-});
+// notes middleware to handle api/notes endpoints
+app.use("/api/notes", notesRoutes);
 
 // run the server on port 5001
 app.listen(5001, () => {
