@@ -7,11 +7,13 @@ dotenv.config();
 // create express app
 const app = express();
 
-
-const PORT = process.env.PORT || 5001
+const PORT = process.env.PORT || 5001;
 
 // connecte to MongoDB
 connectDB();
+
+// parse json requests
+app.use(express.json());
 
 // notes middleware to handle api/notes endpoints
 app.use("/api/notes", notesRoutes);
