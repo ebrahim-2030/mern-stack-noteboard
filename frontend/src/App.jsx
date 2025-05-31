@@ -5,9 +5,9 @@ import Details from "./pages/Details";
 
 const App = () => {
   return (
-
-    // set DaisyUI theme 
-    <div data-theme="sunset" className="min-h-[100vh]">
+    // set DaisyUI theme
+    <div data-theme="sunset">
+      <div />
       {/* app routes */}
       <Routes>
         <Route path="/" element={<Home />} />
