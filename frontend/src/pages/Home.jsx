@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import RateLimitedUI from "../components/RateLimitedUI";
 import toast from "react-hot-toast";
-import axios from "axios";
 import NoteCard from "../components/NoteCard";
+
+import api from "../lib/axios";
 
 const Home = () => {
   // state to track if user is rate limited
@@ -17,7 +18,7 @@ const Home = () => {
     // fetch notes from backend api
     const fetchNotes = async () => {
       try {
-        const res = await axios.get("http://localhost:5001/api/notes");
+        const res = await api.get("/notes");
         setNotes(res.data.data);
         setIsRateLimited(false);
       } catch (err) {
