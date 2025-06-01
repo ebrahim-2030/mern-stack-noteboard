@@ -4,8 +4,8 @@ import React from "react";
 const DeleteDialog = ({ onConfirm, onCancel, loading }) => {
   return (
     <div
-      className="card bg-teal-900 hover:shadow-lg transition-all duration-200 
-      border-t-4 shadow-md w-full max-w-md rounded-none  border-solid border-red-400/80"
+      className="card bg-teal-950 hover:shadow-lg transition-all duration-200 
+      shadow-md w-full  max-w-md  border  border-t-4 border-success"
     >
       <div className="card-body flex flex-col items-center">
         {/*  title */}
