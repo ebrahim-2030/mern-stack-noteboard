@@ -6,19 +6,17 @@ export const getAllNotes = async (_, res) => {
     // retrieve all notes from DB descendingly
     const notes = await Note.find().sort({ createdAt: -1 });
 
-    // send success response, if notes found
-    if (notes.length > 0) {
-      res.status(200).json({
-        success: true,
-        message: "Note fetched successfully",
-        data: notes,
-      });
-    }
+    // send success response
+    res.status(200).json({
+      success: true,
+      message: "Note fetched successfully",
+      data: notes,
+    });
   } catch (err) {
-    // log error, and sedn failure response
+    // log error, and send failure response
     console.log("Error in getAllNotes controller", err);
     res.status(500).json({
-      message: false,
+      success: false,
       message: "Internal server error",
     });
   }
@@ -118,7 +116,7 @@ export const updateNote = async (req, res) => {
       data: updatedNote,
     });
   } catch (err) {
-    // log the error, and send failure response 
+    // log the error, and send failure response
     console.log("Error in updateNote controller", err);
     res.status(500).json({
       success: false,
@@ -144,14 +142,13 @@ export const deleteNote = async (req, res) => {
       });
     }
 
-    // send success response, if book deleted 
+    // send success response, if book deleted
     res.status(200).json({
       success: true,
       message: "Book deleted successfully",
       data: deletedNote,
     });
   } catch (err) {
-
     // log the error, and send failure response
     console.log("Error in deleteNote controller", err);
     res.status(500).json({

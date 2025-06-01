@@ -5,6 +5,9 @@ import toast from "react-hot-toast";
 import NoteCard from "../components/NoteCard";
 
 import api from "../lib/axios";
+import NotesNotFound from "../components/NotesNotFound";
+import Modal from "../components/Modal";
+import DeleteDialog from "../components/DeleteDialog";
 
 const Home = () => {
   // state to track if user is rate limited
@@ -38,7 +41,7 @@ const Home = () => {
 
     fetchNotes();
   }, []);
-  console.log(notes);
+
   return (
     <div className="min-h-screen">
       {/* header component */}
@@ -49,13 +52,17 @@ const Home = () => {
 
       <div className="mx-auto max-w-7xl p-4 pt-6">
         {/* show loading message while fetching */}
+
         {loading && <div className="text-center py-10">Loading notes...</div>}
+
+        {/* render NotesNoteFound component if there is no note */}
+        {notes.length === 0 && !isRateLimited && !loading && <NotesNotFound />}
 
         {/* show notes grid if data available and not rate limited */}
         {notes.length > 0 && !isRateLimited && (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {notes.map((note) => (
-              <NoteCard key={note._id} note={note} />
+              <NoteCard key={note._id}  note={note} setNotes={setNotes} />
             ))}
           </div>
         )}
