@@ -6,7 +6,7 @@ import Details from "./pages/Details";
 const App = () => {
   return (
     // set DaisyUI theme
-    <div data-theme="sunset">
+    <div data-theme="sunset" className="bg-gradient-to-t from-teal-900/50 to-transparent">
       <div />
       {/* app routes */}
       <Routes>

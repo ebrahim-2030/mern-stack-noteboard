@@ -11,18 +11,22 @@ import { useState } from "react";
 const NoteCard = ({ note, setNotes }) => {
   const [showModal, setShowModal] = useState(false);
   const [noteToDelete, setNoteToDelete] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   //  handle note deleting
   const handleDelete = async (id) => {
+    setLoading(true);
     try {
       await api.delete(`/notes/${id}`);
       setNotes((prev) => prev.filter((n) => n._id !== id));
 
-      toast.success("Note deleted successfully");
+      toast.success("Note deleted");
     } catch (err) {
       console.log("Error in deleting note", err);
       toast.error("Failed to delete note");
     } finally {
+      setLoading(false);
+
       setShowModal(false);
       setNoteToDelete(null);
     }
@@ -52,12 +56,12 @@ const NoteCard = ({ note, setNotes }) => {
     <div>
       <Link
         to={`/note/${note._id}`}
-        className="card bg-base-100 hover:shadow-lg transition-all duration-200 
-      border-t-4 shadow-md   border-solid border-success"
+        className="card bg-base-100  
+      border-t-4 border-success border"
       >
         <div className="card-body">
           {/* note title */}
-          <h3 className="card-title text-base-content">{note.title}</h3>
+          <h3 className="card-title text-success">{note.title}</h3>
           {/* note content preview with max 3 lines */}
           <p className="text-base-content/70 line-clamp-3">{note.content}</p>
           {/* footer with created date and action icons */}
@@ -81,7 +85,11 @@ const NoteCard = ({ note, setNotes }) => {
 
       {/* deleting dialog modal  */}
       <Modal showModal={showModal} handleCancel={handleCancel}>
-        <DeleteDialog onConfirm={handleConfirm} onCancel={handleCancel} />
+        <DeleteDialog
+          loading={loading}
+          onConfirm={handleConfirm}
+          onCancel={handleCancel}
+        />
       </Modal>
     </div>
   );
