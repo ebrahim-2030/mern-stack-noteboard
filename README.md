@@ -1,12 +1,11 @@
-    # 📝 MERN Stack Noteboard
-
-A full-featured note-taking web application built with the **MERN** stack — **MongoDB, Express.js, React, and Node.js**. This project demonstrates a clean and responsive design using **Tailwind CSS**, dynamic client-server interactions, and user-friendly feedback through modals and toast notifications.
+ ### 📝 MERN Stack Noteboard
+ 
+A full-stack note-taking application built with the MERN stack: MongoDB, Express, React, and Node.js. Features include creating, updating, and deleting notes with confirmation modals, handling rate limits gracefully, and providing dynamic UI feedback using toast notifications. Styled with Tailwind CSS and enhanced with Lucide icons for a clean user experience.
 
 ---
 
 ## 🔗 Live Demo
-
-👉 [View the Live App](mern-stack-noteboard.onrender.com)  
+👉 [View the Live App](https://mern-stack-noteboard.onrender.com/)  
 
 --- 
 
@@ -53,24 +52,25 @@ A full-featured note-taking web application built with the **MERN** stack — **
 ### 📁 Clone the repo
 
 ```bash
-git clone https://github.com/ebrahim-2039=0/mern-stack-noteboard.git
+git clone https://github.com/ebrahim-2030/mern-stack-noteboard.git
 cd mern-stack-noteboard
 
+---
 
---- 
-
+```
 ## 🧪 Environment Setup
 
 ### Backend `.env` File
-
 Create a `.env` file inside the `/backend` directory with the following content:
 
+```bash
 MONGO_URI = your_mongo_uri
 PORT = 5001
 UPSTASH_REDIS_REST_URL = your_redis_rest_uri
 UPSTASH_REDIS_REST_TOKEN = your_redis_rest_uri
 NODE_ENV = development  
 
+```
 
 ## 🔧 Backend Setup
 
@@ -79,6 +79,7 @@ cd backend
 npm install
 npm run dev
 
+```
 
 ## 💻  Backend Setup
 
@@ -86,6 +87,8 @@ npm run dev
 cd frontend
 npm install
 npm run dev
+
+```
 
 ### 😊 HAPPY CODING!
 
