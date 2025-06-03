@@ -11,7 +11,7 @@ const DeleteDialog = ({ onConfirm, onCancel, loading }) => {
         {/*  title */}
         <h3 className="card-title text-base-content">Sure to Delete note?</h3>
         {/* confirmation message */}
-        <p className="text-base-content/70 line-clamp-3">
+        <p className="text-base-content/70 text-center line-clamp-3">
           Please confirm to permanently delete the note.
         </p>
         {/* action icons */}
